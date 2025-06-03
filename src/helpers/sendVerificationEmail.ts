@@ -3,7 +3,7 @@ import { resend } from "@/lib/resend"; //NOTE - resend.ts : resend email api key
 import VerificationEmail from "../../emails/VerificationEmail";
 import { ApiResponse } from "@/types/ApiResponse";
 
-export async function sendVerificationemail(
+export async function sendVerificationEmail(
   email: string,
   username: string,
   verifyCode: string
@@ -20,7 +20,7 @@ export async function sendVerificationemail(
     console.error("Error sending verification email", emailError);
     return {
       success: false,
-      message: "Failde to send verification email",
+      message: "Failed to send verification email",
     };
   }
 }

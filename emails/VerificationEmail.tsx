@@ -38,7 +38,7 @@ export default function VerificationEmail({
         </Row>
         <Row>
           <Text>
-            Thank you fro registering. Please use the following verification
+            Thank you for registering. Please use the following verification
             code to complete your registeration:
           </Text>
         </Row>
