@@ -16,10 +16,13 @@ export async function middleware(request: NextRequest) {
   ) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
-  return NextResponse.redirect(new URL("/home", request.url));
+  if (!token && url.pathname.startsWith("/dashboard")) {
+    return NextResponse.redirect(new URL("/sign-in", request.url));
+  }
+  return NextResponse.next();
 }
 
 //NOTE - Config file is for : where u want to run middleware
 export const config = {
-  matcher: ["/sign-in", "/sign-up", "/", "/dashboard/:path*", "/verify/:path"],
+  matcher: ["/sign-in", "/sign-up", "/", "/dashboard/:path*", "/verify/:path*"],
 };
