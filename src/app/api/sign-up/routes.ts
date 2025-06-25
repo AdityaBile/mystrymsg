@@ -77,6 +77,7 @@ export async function POST(request: Request) {
     );
 
     //NOTE - ".success" is from resend mail api
+    // if mail not send
     if (!emailResponse.success) {
       return Response.json(
         {
