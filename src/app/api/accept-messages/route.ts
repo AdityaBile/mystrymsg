@@ -62,6 +62,7 @@ export async function POST(request: Request) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(request: Request) {
   await dbConnect();
 
@@ -100,8 +101,8 @@ export async function GET(request: Request) {
       },
       { status: 200 }
     );
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    console.log("Error in getting message acceptance status", error);
     return Response.json(
       {
         success: false,
