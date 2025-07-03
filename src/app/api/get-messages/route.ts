@@ -6,7 +6,6 @@ import { User } from "next-auth";
 import mongoose from "mongoose";
 
 // To Toggle to accept messages
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(request: Request) {
   await dbConnect();
   // get current login user
@@ -54,6 +53,14 @@ export async function GET(request: Request) {
       },
       { status: 200 }
     );
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {}
+  } catch (error) {
+    console.log("An unexpected error had occured: ", error);
+    return Response.json(
+      {
+        success: false,
+        message: "Not authenticated",
+      },
+      { status: 500 }
+    );
+  }
 }
